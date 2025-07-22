@@ -1,5 +1,5 @@
 #pragma once
-#include <windows.h>
+#include <SDL3/SDL.h>
 
 namespace YoungEngine {
 
@@ -10,14 +10,19 @@ namespace YoungEngine {
     public:
         static InitFunc userInit;
         static UpdateFunc userUpdate;
-        HWND m_hwnd;
+
         void run();
-        void init(HWND hwnd);
+
+        void init();
         void update();
         void render();
+
+    private:
+        SDL_Window* m_window = nullptr;
+        SDL_Renderer* m_renderer = nullptr;
+        bool m_running = false;
     };
 
-    // 등록 매크로
 #define REGISTER_GAME(INIT_FN, UPDATE_FN) \
         namespace YoungEngine { \
             InitFunc userInit = INIT_FN; \
