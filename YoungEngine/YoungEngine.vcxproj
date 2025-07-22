@@ -19,9 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="WindowManager.cpp" />
+    <ClCompile Include="YObject.cpp" />
+    <ClCompile Include="YObjectManager.cpp" />
     <ClCompile Include="YoungEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="WindowManager.h" />
+    <ClInclude Include="YObject.h" />
+    <ClInclude Include="YObjectManager.h" />
     <ClInclude Include="YoungEngine.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
