@@ -12,9 +12,9 @@ public:
     void AddObject(std::shared_ptr<Object> obj);
 
     void UpdateAll(float deltaTime);
-
+    const std::vector<std::shared_ptr<Object>> GetAllObjects() const;
     void RemoveObject(Object* objPtr);
 
 private:
-    std::vector<std::shared_ptr<Object>> objects;
+    std::vector<std::shared_ptr<Object>> m_objects;
 };

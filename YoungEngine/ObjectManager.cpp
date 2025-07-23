@@ -1,5 +1,5 @@
 #include "ObjectManager.h"
-
+#include <memory>
 
 
 ObjectManager& ObjectManager::GetInstance()
@@ -10,19 +10,24 @@ ObjectManager& ObjectManager::GetInstance()
 
 void ObjectManager::AddObject(std::shared_ptr<Object> obj)
 {
-    objects.push_back(obj);
+    m_objects.push_back(obj);
 }
 
 void ObjectManager::UpdateAll(float deltaTime)
 {
-    for (auto& obj : objects) {
+    for (auto& obj : m_objects) {
         obj->Update(deltaTime);
     }
 }
 
+const std::vector<std::shared_ptr<Object>> ObjectManager::GetAllObjects() const
+{
+    return m_objects;
+}
+
 void ObjectManager::RemoveObject(Object* objPtr)
 {
-    objects.erase(std::remove_if(objects.begin(), objects.end(),
+    m_objects.erase(std::remove_if(m_objects.begin(), m_objects.end(),
         [&](const std::shared_ptr<Object>& o) { return o.get() == objPtr; }),
-        objects.end());
+        m_objects.end());
 }

@@ -3092,7 +3092,7 @@ extern "C" {
  *
  * \since This hint is available since SDL 3.2.0.
  */
-#define SDL_HINT_SHUTDOWN_DBUS_ON_QUIT "SDL_SHUTDOWN_DBUS_ON_QUIT"
+#define SDL_HINT_shutdown_DBUS_ON_QUIT "SDL_shutdown_DBUS_ON_QUIT"
 
 /**
  * A variable that specifies a backend to use for title storage.

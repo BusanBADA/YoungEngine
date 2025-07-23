@@ -1,9 +1,10 @@
 #include "YoungEngine.h"
-#include <windows.h>
 
-YoungEngine::engine engine;
+
+Engine engineRef;
 
 int main() {
-    engine.run();
+    engineRef.Run();
+    engineRef.Shutdown();
     return 0;
 }
