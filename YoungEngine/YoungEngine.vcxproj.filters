@@ -18,10 +18,10 @@
     <ClCompile Include="YoungEngine.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="YObject.cpp">
+    <ClCompile Include="Object.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="YObjectManager.cpp">
+    <ClCompile Include="ObjectManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="WindowManager.cpp">
@@ -38,10 +38,10 @@
     <ClInclude Include="YoungEngine.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="YObject.h">
+    <ClInclude Include="Object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="YObjectManager.h">
+    <ClInclude Include="ObjectManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="WindowManager.h">

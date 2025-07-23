@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL3/SDL.h>
-#include "YObjectManager.h"
+#include "ObjectManager.h"
 #include "WindowManager.h"
 #include "RenderManager.h"
 
@@ -18,7 +18,7 @@ namespace YoungEngine {
         void run();
 
         bool init();
-        void update();
+        void update(float deltaTime);
         void render();
         void Shutdown();
 
@@ -26,9 +26,12 @@ namespace YoungEngine {
         SDL_Window* m_window = nullptr;
         SDL_Renderer* m_renderer = nullptr;
         bool m_running = false;
-        YObjectManager ObjectManager;
+        ObjectManager m_objectManager;
         WindowManager m_windowManager;
         RendererManager m_rendererManager;
+
+        Uint64 m_previousCounter = 0;
+        double m_frequency = 0.0;
     };
 
 #define REGISTER_GAME(INIT_FN, UPDATE_FN) \

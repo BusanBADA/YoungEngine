@@ -1,8 +1,8 @@
 #pragma once
-class YObject {
+class Object {
 public:
-    YObject() = default;
-    virtual ~YObject() = default;
+    Object() = default;
+    virtual ~Object() = default;
 
     virtual void Update(float deltaTime) {}
 

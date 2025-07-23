@@ -1,7 +1,7 @@
 #include "WindowManager.h"
 
-bool WindowManager::Init(const char* title, int width, int height) {
-    m_window = SDL_CreateWindow(title, width, height, SDL_WINDOW_RESIZABLE);
+bool WindowManager::Init(const char* title, int width, int height, Uint32 flags) {
+    m_window = SDL_CreateWindow(title, width, height, flags);
     return (m_window != nullptr);
 }
 
