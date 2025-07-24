@@ -17,5 +17,3 @@ class Box : public Object
 {
     
 };
-void GameInit();
-void GameUpdate(float dt);

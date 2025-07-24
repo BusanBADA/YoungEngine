@@ -13,6 +13,7 @@ public:
 
     void UpdateAll(float deltaTime);
     const std::vector<std::shared_ptr<Object>> GetAllObjects() const;
+    const std::vector<std::shared_ptr<class DrawableObject>> GetAllDrawableObjects() const;
     void RemoveObject(Object* objPtr);
 
 private:

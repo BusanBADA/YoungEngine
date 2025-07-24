@@ -1,4 +1,5 @@
 #include "ObjectManager.h"
+#include "DrawableObject.h"
 #include <memory>
 
 
@@ -23,6 +24,18 @@ void ObjectManager::UpdateAll(float deltaTime)
 const std::vector<std::shared_ptr<Object>> ObjectManager::GetAllObjects() const
 {
     return m_objects;
+}
+
+const std::vector<std::shared_ptr<DrawableObject>> ObjectManager::GetAllDrawableObjects() const
+{
+    std::vector<std::shared_ptr<DrawableObject>> result;
+    for (auto& obj : m_objects) {
+        auto drawable = std::dynamic_pointer_cast<DrawableObject>(obj);
+        if (drawable) {
+            result.push_back(drawable);
+        }
+    }
+    return result;
 }
 
 void ObjectManager::RemoveObject(Object* objPtr)

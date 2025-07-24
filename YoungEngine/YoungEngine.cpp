@@ -81,7 +81,7 @@ void Engine::Render() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-    m_rendererManager.DrawObjects(m_objectManager.GetAllObjects());
+    m_rendererManager.DrawObjects(m_objectManager.GetAllDrawableObjects());
 
     SDL_RenderPresent(renderer);
 }
