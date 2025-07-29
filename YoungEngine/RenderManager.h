@@ -2,6 +2,7 @@
 #include <SDL3/SDL.h>
 #include <vector>
 #include <memory>
+#include <glad/glad.h>
 #include "DrawableObject.h"
 class RendererManager {
 public:
@@ -9,9 +10,13 @@ public:
     void BeginFrame(); // SDL_RenderClear µî
     void EndFrame();   // SDL_RenderPresent µî
     void DrawObjects(const std::vector<std::shared_ptr<DrawableObject>>& objects);
-    void DrawRect(const SDL_FRect& rect, const SDL_Color& color);
     void Destroy();
-    SDL_Renderer* GetRenderer() const { return m_renderer; }
+
 private:
-    SDL_Renderer* m_renderer = nullptr;
+    SDL_Window* m_window = nullptr;
+    SDL_GLContext m_glContext = nullptr;
+
+    GLuint m_vao = 0;
+    GLuint m_vbo = 0;
+    GLuint m_shaderProgram = 0;
 };

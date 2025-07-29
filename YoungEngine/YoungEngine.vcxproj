@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderManager.cpp" />
@@ -39,6 +40,10 @@
     <ProjectReference Include="..\Game\Game.vcxproj">
       <Project>{88948b9a-f63e-4160-985c-372007337791}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment_shader.glsl" />
+    <None Include="vertex_shader.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -124,7 +129,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)YoungEngine\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)\lib\x86\SDL3.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "$(ProjectDir)\lib\x86\SDL3.dll" "$(OutDir)"
+copy /Y "$(ProjectDir)\vertex_shader.glsl" "$(OutDir)"
+copy /Y "$(ProjectDir)\fragment_shader.glsl" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,7 +154,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)YoungEngine\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)\lib\x86\SDL3.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "$(ProjectDir)\lib\x86\SDL3.dll" "$(OutDir)"
+copy /Y "$(ProjectDir)\vertex_shader.glsl" "$(OutDir)"
+copy /Y "$(ProjectDir)\fragment_shader.glsl" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -156,7 +165,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,7 +177,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)YoungEngine\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "$(ProjectDir)\lib\x64\SDL3.dll" "$(OutDir)"
+copy /Y "$(ProjectDir)\vertex_shader.glsl" "$(OutDir)"
+copy /Y "$(ProjectDir)\fragment_shader.glsl" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -191,7 +202,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)YoungEngine\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)\lib\x64\SDL3.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "$(ProjectDir)\lib\x64\SDL3.dll" "$(OutDir)"
+copy /Y "$(ProjectDir)\vertex_shader.glsl" "$(OutDir)"
+copy /Y "$(ProjectDir)\fragment_shader.glsl" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

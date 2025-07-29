@@ -16,7 +16,7 @@ bool Engine::Init() {
     bool resizable = config.GetBool("Window.Resizable", true);
     bool fullscreen = config.GetBool("Graphics.Fullscreen", true);
 
-    Uint32 flags = 0;
+    Uint32 flags = SDL_WINDOW_OPENGL;
     if (resizable) flags |= SDL_WINDOW_RESIZABLE;
     if (fullscreen) flags |= SDL_WINDOW_FULLSCREEN;
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -55,6 +55,7 @@ void Engine::Run() {
             if (event.type == SDL_EVENT_QUIT) {
                 m_running = false;
             }
+            m_windowManager.ProcessEvent(event);
             m_inputManager.ProcessEvent(event);
         }
 
@@ -77,14 +78,9 @@ void Engine::Update(float deltaTime) {
 }
 
 void Engine::Render() {
-    SDL_Renderer* renderer = m_rendererManager.GetRenderer();
-
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
-
+    m_rendererManager.BeginFrame();
     m_rendererManager.DrawObjects(m_objectManager.GetAllDrawableObjects());
-
-    SDL_RenderPresent(renderer);
+    m_rendererManager.EndFrame();
 }
    
 void Engine::Shutdown()
