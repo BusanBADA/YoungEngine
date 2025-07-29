@@ -4,5 +4,6 @@ class Object {
 public:
     Object() = default;
     virtual ~Object() = default;
+    virtual void Init() {}
     virtual void Update(float deltaTime) {}
 };

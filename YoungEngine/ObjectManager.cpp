@@ -14,6 +14,14 @@ void ObjectManager::AddObject(std::shared_ptr<Object> obj)
     m_objects.push_back(obj);
 }
 
+void ObjectManager::AddObjects(std::vector<std::shared_ptr<Object>> objs)
+{
+    for (std::shared_ptr<Object>obj : objs)
+    {
+        m_objects.push_back(obj);
+    }
+}
+
 void ObjectManager::UpdateAll(float deltaTime)
 {
     for (auto& obj : m_objects) {
@@ -43,4 +51,9 @@ void ObjectManager::RemoveObject(Object* objPtr)
     m_objects.erase(std::remove_if(m_objects.begin(), m_objects.end(),
         [&](const std::shared_ptr<Object>& o) { return o.get() == objPtr; }),
         m_objects.end());
+}
+
+void ObjectManager::RemoveAllObjects()
+{
+    m_objects.clear();
 }

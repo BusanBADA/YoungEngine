@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="WindowManager.cpp" />
@@ -28,10 +29,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="WindowManager.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="YoungEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Game\Game.vcxproj">
+      <Project>{88948b9a-f63e-4160-985c-372007337791}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -105,12 +112,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)YoungEngine\lib\x86\SDL3.lib;YoungEngineLibrary.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)YoungEngine\lib\x86\SDL3.lib;YoungEngineLibrary.lib;</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -128,7 +135,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,12 +156,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)YoungEngine\lib\x64\SDL3.lib;YoungEngineLibrary.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)YoungEngine\lib\x64\SDL3.lib;YoungEngineLibrary.lib;</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -172,12 +179,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)YoungEngine\lib\x64\SDL3.lib;;YoungEngineLibrary.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)YoungEngine\lib\x64\SDL3.lib;YoungEngineLibrary.lib</AdditionalDependencies>
     </Link>
     <Lib>
       <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies)</AdditionalDependencies>

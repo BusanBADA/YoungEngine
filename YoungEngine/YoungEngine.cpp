@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Config.h"
 #include <memory>
-
+#include "GameState.h"
 bool Engine::Init() {
     Config config;
     if (!config.LoadFromFile("Settings.ini")) {
@@ -55,6 +55,7 @@ void Engine::Run() {
             if (event.type == SDL_EVENT_QUIT) {
                 m_running = false;
             }
+            m_inputManager.ProcessEvent(event);
         }
 
         Uint64 currentCounter = SDL_GetPerformanceCounter();
@@ -97,7 +98,15 @@ void Engine::AddObject(std::shared_ptr<Object> object)
     m_objectManager.AddObject(object);
 }
 
-void Engine::Temp()
+void Engine::SetGameState(std::shared_ptr<class GameState> newState)
 {
-
+    m_objectManager.RemoveAllObjects();
+    m_currentState = newState;
+    newState->SetInput(&m_inputManager);
+    if (m_currentState) {
+        m_currentState->Init();
+    }
+    m_objectManager.AddObject(m_currentState);
+    m_objectManager.AddObjects(newState->GetAllObjects());
+    
 }

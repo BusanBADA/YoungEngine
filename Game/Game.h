@@ -1,19 +1,26 @@
 #pragma once
 
 #include <memory>
-#include "Object.h"
-
-class Game
+#include "DrawableObject.h"
+#include "GameState.h"
+class Game : public GameState
 {
 public:
     Game() = default;
-    void Init();
-    void Update(float deltaTime);
+    virtual void Init() override;
+    virtual void Update(float deltaTime) override;
 
 private:
-    // 필요시 멤버 변수들 추가
 };
-class Box : public Object
+class Box : public DrawableObject
 {
-    
+public:
+    virtual void Update(float deltaTime) override;
+
+    void SetInput(InputInterface* input) {
+        m_inputInterface = input;
+    }
+
+private:
+    InputInterface* m_inputInterface = nullptr;
 };
