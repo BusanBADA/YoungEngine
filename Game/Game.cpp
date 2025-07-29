@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include <iostream>
 void Game::Init()
 {
 	GameState::Init();
@@ -34,6 +34,10 @@ void Box::Update(float deltaTime)
     if (m_inputInterface->IsKeyPressed(KEY_DOWN)) {
         rect->y += speed * deltaTime;
     }
-
+    if (m_inputInterface->IsMouseButtonPressed(MOUSE_LEFT)) {
+        int mx, my;
+        m_inputInterface->GetMousePosition(mx, my);
+        std::cout << "Left click at: " << mx << ", " << my << "\n";
+    }
     SetRect(rect->x, rect->y, rect->w, rect->h);
 }

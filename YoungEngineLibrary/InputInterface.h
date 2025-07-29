@@ -272,6 +272,14 @@ typedef enum KeyInput
     KEY_COUNT = 512
 };
 
+typedef enum MouseInput {
+    MOUSE_LEFT = 1,
+    MOUSE_MIDDLE = 2,
+    MOUSE_RIGHT = 3,
+    MOUSE_X1 = 4,
+    MOUSE_X2 = 5,
+};
+
 inline KeyInput ToKeyInput(SDL_Scancode scancode) {
     return static_cast<KeyInput>(scancode);
 }
@@ -279,9 +287,16 @@ inline KeyInput ToKeyInput(SDL_Scancode scancode) {
 inline  SDL_Scancode ToScancode(KeyInput key) {
     return static_cast<SDL_Scancode>(key);
 }
+
+inline MouseInput ToMouseInput(Uint32 InValue)
+{
+    return static_cast<MouseInput>(InValue);
+}
 class InputInterface {
 public:
     virtual ~InputInterface() = default;
     virtual bool IsKeyPressed(KeyInput key) const = 0;
+    virtual bool IsMouseButtonPressed(MouseInput button) const = 0;
+    virtual void GetMousePosition(int& x, int& y) const = 0;
 };
 
