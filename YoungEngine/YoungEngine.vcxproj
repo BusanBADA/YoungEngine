@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Config.cpp" />
-    <ClCompile Include="glad.c" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderManager.cpp" />
@@ -32,6 +31,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="WindowManager.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="YoungEngine.h" />
@@ -117,7 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories);$(SolutionDir)YoungEngineLibrary\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,7 +142,7 @@ copy /Y "$(ProjectDir)\fragment_shader.glsl" "$(OutDir)"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories);$(SolutionDir)YoungEngineLibrary\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,7 +165,7 @@ copy /Y "$(ProjectDir)\fragment_shader.glsl" "$(OutDir)"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;;$(SolutionDir)YoungEngineLibrary\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,7 +190,7 @@ copy /Y "$(ProjectDir)\fragment_shader.glsl" "$(OutDir)"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)YoungEngine\include;$(SolutionDir)YoungEngineLibrary;$(SolutionDir)\Game;%(AdditionalIncludeDirectories);$(SolutionDir)YoungEngineLibrary\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

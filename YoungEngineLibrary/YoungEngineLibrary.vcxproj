@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="Object.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +29,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputInterface.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="RenderInterface.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

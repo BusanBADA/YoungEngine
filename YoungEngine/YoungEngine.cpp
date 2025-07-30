@@ -19,7 +19,7 @@ bool Engine::Init() {
     Uint32 flags = SDL_WINDOW_OPENGL;
     if (resizable) flags |= SDL_WINDOW_RESIZABLE;
     if (fullscreen) flags |= SDL_WINDOW_FULLSCREEN;
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO) <= 0) {
         std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
         return false;
     }
@@ -45,7 +45,6 @@ bool Engine::Init() {
 
 
 void Engine::Run() {
-    Init();
 
     SDL_Event event;
     const float deltaTime = 1.0f / 60.0f;
@@ -99,6 +98,7 @@ void Engine::SetGameState(std::shared_ptr<class GameState> newState)
     m_objectManager.RemoveAllObjects();
     m_currentState = newState;
     newState->SetInput(&m_inputManager);
+    newState->SetRender(&m_rendererManager);
     if (m_currentState) {
         m_currentState->Init();
     }

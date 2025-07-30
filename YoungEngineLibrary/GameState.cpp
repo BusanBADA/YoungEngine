@@ -16,3 +16,8 @@ void GameState::SetInput(InputInterface* input)
 {
 	m_inputInterface = input;
 }
+
+void GameState::SetRender(RenderInterface* render)
+{
+	m_renderInterface = render;
+}
