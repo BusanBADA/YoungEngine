@@ -3,6 +3,7 @@
 #include "WindowManager.h"
 #include "RenderManager.h"
 #include "InputManager.h"
+#include "CollisionManager.h"
 class Engine {
 public:
     Engine() = default;
@@ -22,7 +23,7 @@ private:
     WindowManager m_windowManager;
     RendererManager m_rendererManager;
     InputManager m_inputManager;
-
+    CollisionManager m_collisionManager;
     Uint64 m_previousCounter = 0;
     double m_frequency = 0.0;
 

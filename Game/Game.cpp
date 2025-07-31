@@ -14,7 +14,22 @@ void Game::Init()
 
     Ptr->SetUV(0, 4, 5);
     Ptr->SetUsingIndexes({ 0, 1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15,16,17,18 });
+    Ptr->SetCollisionType(AABB);
+    Ptr->SetOnCollision([](CollisionObject& other) {
+        std::cout << "[Box] 충돌 발생!\n";
+        });
     m_objects.push_back(Ptr);
+
+    std::shared_ptr<CollisionObject> obstacle = std::make_shared<CollisionObject>();
+    obstacle->SetRect(300.f, 100.f, 100.f, 100.f);
+    obstacle->SetColor(255.f, 0.f, 0.f, 255.f);
+    obstacle->SetTexture(texID);
+    obstacle->SetCollisionType(AABB);
+    obstacle->SetOnCollision([](CollisionObject& other) {
+        std::cout << "[Obstacle] 충돌 감지됨!\n";
+        });
+
+    m_objects.push_back(obstacle);
 }
 
 void Game::Update(float deltaTime)

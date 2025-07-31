@@ -74,6 +74,7 @@ void Engine::Run() {
 
 void Engine::Update(float deltaTime) {
     m_objectManager.UpdateAll(deltaTime);
+    m_collisionManager.Update();
 }
 
 void Engine::Render() {
@@ -104,5 +105,12 @@ void Engine::SetGameState(std::shared_ptr<class GameState> newState)
     }
     m_objectManager.AddObject(m_currentState);
     m_objectManager.AddObjects(newState->GetAllObjects());
-    
+    std::vector<std::shared_ptr<CollisionObject>> Collidables;
+    for (auto& obj : newState->GetAllObjects()) {
+        std::shared_ptr<CollisionObject> Collidable = std::dynamic_pointer_cast<CollisionObject>(obj);
+        if (Collidable) {
+            Collidables.push_back(Collidable);
+        }
+    }
+    m_collisionManager.SetObjects(Collidables);
 }

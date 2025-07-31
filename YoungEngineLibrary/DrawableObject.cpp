@@ -10,12 +10,9 @@ void DrawableObject::Update(float deltaTime)
 	{
 		m_frameTimer = 0.0f;
 
-		//1. 현재 인덱스의 프레임을 먼저 UV 설정
 		int frame = UsingIndexes[m_currentIndexInUsing];
-		std::cout << "frame: " << frame << " (index: " << m_currentIndexInUsing << ")\n";
 		SetUV(frame, m_frameCols, m_frameRows);
 
-		//2. 다음 인덱스로 넘어가기
 		m_currentIndexInUsing++;
 		if (m_currentIndexInUsing >= UsingIndexes.size()) {
 			m_currentIndexInUsing = 0;
@@ -76,7 +73,7 @@ void DrawableObject::SetUsingIndexes(std::vector<int> NewIndexes)
 	if (!UsingIndexes.empty())
 	{
 		int firstFrame = UsingIndexes[0];
-		SetUV(firstFrame, m_frameCols, m_frameRows); // 바로 첫 프레임 UV 설정
+		SetUV(firstFrame, m_frameCols, m_frameRows);
 	}
 }
 void DrawableObject::ClearUsingIndexes()

@@ -9,8 +9,8 @@ class RendererManager : public RenderInterface
 {
 public:
     bool Init(SDL_Window* window);
-    void BeginFrame(); // SDL_RenderClear µî
-    void EndFrame();   // SDL_RenderPresent µî
+    void BeginFrame();
+    void EndFrame();
     void DrawObjects(const std::vector<std::shared_ptr<DrawableObject>>& objects);
     virtual GLuint LoadTexture(const char* path) override;
     void Destroy();

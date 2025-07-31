@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "DrawableObject.h"
+#include "CollisionObject.h"
 #include "GameState.h"
 class Game : public GameState
 {
@@ -12,7 +12,7 @@ public:
 
 private:
 };
-class Box : public DrawableObject
+class Box : public CollisionObject
 {
 public:
     virtual void Update(float deltaTime) override;

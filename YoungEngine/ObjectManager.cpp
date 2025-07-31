@@ -21,7 +21,11 @@ void ObjectManager::AddObjects(std::vector<std::shared_ptr<Object>> objs)
         m_objects.push_back(obj);
     }
 }
-
+void ObjectManager::SetObjects(std::vector<std::shared_ptr<Object>> objs)
+{
+    RemoveAllObjects();
+    m_objects = objs;
+}
 void ObjectManager::UpdateAll(float deltaTime)
 {
     for (auto& obj : m_objects) {
