@@ -416,3 +416,10 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+!YoungEngine/lib/**/arm64/**
+!YoungEngine/lib/**/x64/**
+!YoungEngine/lib/**/x86/**
+!YoungEngineLibrary/lib/**/arm64/**
+!YoungEngineLibrary/lib/**/x64/**
+!YoungEngineLibrary/lib/**/x86/**
